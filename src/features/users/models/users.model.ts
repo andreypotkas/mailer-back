@@ -7,8 +7,8 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
+import { ContactList } from 'src/features/contacts/contact-list/model/contact-list.model';
 import { MailAccount } from 'src/features/mail/mail-account/models/mail-account.model';
-import { MailContactList } from 'src/features/mail/mail-contact-list/model/mail-contact-list.model';
 
 @Table({ tableName: 'users' })
 export class User extends Model<User> {
@@ -45,8 +45,8 @@ export class User extends Model<User> {
   })
   refreshToken: string;
 
-  @HasMany(() => MailContactList)
-  mailContactLists: MailContactList[];
+  @HasMany(() => ContactList)
+  mailContactLists: ContactList[];
 
   @HasMany(() => MailAccount)
   mailAccounts: MailAccount[];

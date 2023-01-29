@@ -5,12 +5,12 @@ import { AuthModule } from './features/auth/auth.module';
 import { User } from './features/users/models/users.model';
 import { MailAccountModule } from './features/mail/mail-account/mail-account.module';
 import { MailAccount } from './features/mail/mail-account/models/mail-account.model';
-import { MailContactModule } from './features/mail/mail-contact/mail-contact.module';
-import { MailContact } from './features/mail/mail-contact/models/mail-contact.model';
-import { MailContactListModule } from './features/mail/mail-contact-list/mail-contact-list.module';
-import { MailContactList } from './features/mail/mail-contact-list/model/mail-contact-list.model';
 import { MailSenderModule } from './features/mail/mail-sender/mail-sender.module';
 import { MailRequesterModule } from './features/mail/mail-requester/mail-requester.module';
+import { Contact } from './features/contacts/contact/models/contact.model';
+import { ContactList } from './features/contacts/contact-list/model/contact-list.model';
+import { ContactModule } from './features/contacts/contact/contact.module';
+import { ContactListModule } from './features/contacts/contact-list/contact-list.module';
 
 @Module({
   imports: [
@@ -27,16 +27,16 @@ import { MailRequesterModule } from './features/mail/mail-requester/mail-request
       models: [
         User,
         MailAccount,
-        MailContact,
-        MailContactList
+        Contact,
+        ContactList
       ],
       autoLoadModels: true,
     }),
 
     AuthModule,
     MailAccountModule,
-    MailContactModule,
-    MailContactListModule,
+    ContactModule,
+    ContactListModule,
     MailSenderModule,
     MailRequesterModule
   ],

@@ -1,34 +1,34 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { MailContact } from './models/mail-contact.model';
+import { Contact } from './models/contact.model';
 
 @Injectable()
-export class MailContactService {
-  constructor(@InjectModel(MailContact) private contactRepository: typeof MailContact){}
+export class ContactService {
+  constructor(@InjectModel(Contact) private contactRepository: typeof Contact){}
 
-  public async getAll(): Promise<MailContact[]> {
+  public async getAll(): Promise<Contact[]> {
     return await this.contactRepository.findAll({ include: { all: true } });
   }
 
-  public async getAllByUserId(id: string): Promise<MailContact[]> {
+  public async getAllByUserId(id: string): Promise<Contact[]> {
     return await this.contactRepository.findAll({where: {mailContactListId: id}, include: { all: true } });
   }
 
-  public async getById(id: string): Promise<MailContact> {
+  public async getById(id: string): Promise<Contact> {
     return await this.contactRepository.findOne({
       where: { id },
       include: { all: true },
     });
   }
 
-  public async getByEmail(email: string): Promise<MailContact> {
+  public async getByEmail(email: string): Promise<Contact> {
     return await this.contactRepository.findOne({
       where: { email },
       include: { all: true },
     });
   }
 
-  public async create(body: MailContact): Promise<MailContact> {
+  public async create(body: Contact): Promise<Contact> {
     const {email} = body;
     
     const mail = await this.getByEmail(email);    

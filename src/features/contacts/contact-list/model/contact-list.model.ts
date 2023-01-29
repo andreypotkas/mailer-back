@@ -10,10 +10,10 @@ import {
     Table,
   } from 'sequelize-typescript';
 import { User } from 'src/features/users/models/users.model';
-import { MailContact } from '../../mail-contact/models/mail-contact.model';
+import { Contact } from '../../contact/models/contact.model';
   
   @Table({ tableName: 'mail-contact-lists' })
-  export class MailContactList extends Model<MailContactList> {
+  export class ContactList extends Model<ContactList> {
   
     @Column({
       type: DataType.UUID,
@@ -46,6 +46,6 @@ import { MailContact } from '../../mail-contact/models/mail-contact.model';
     })
     userId: string;
 
-    @HasMany(() => MailContact)
-    mails: MailContact[]
+    @HasMany(() => Contact)
+    mails: Contact[]
   }

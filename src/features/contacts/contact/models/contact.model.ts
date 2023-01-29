@@ -9,10 +9,10 @@ import {
     Model,
     Table,
   } from 'sequelize-typescript';
-import { MailContactList } from '../../mail-contact-list/model/mail-contact-list.model';
+import { ContactList } from '../../contact-list/model/contact-list.model';
   
   @Table({ tableName: 'mail-contacts' })
-  export class MailContact extends Model<MailContact> {
+  export class Contact extends Model<Contact> {
   
     @Column({
       type: DataType.UUID,
@@ -97,10 +97,10 @@ import { MailContactList } from '../../mail-contact-list/model/mail-contact-list
     })
     whatsup: string;
   
-    @BelongsTo(() => MailContactList)
-    mailContactList: MailContactList;
+    @BelongsTo(() => ContactList)
+    mailContactList: ContactList;
 
-    @ForeignKey(() => MailContactList)
+    @ForeignKey(() => ContactList)
     @Column({
       type: DataType.UUID,
     })
