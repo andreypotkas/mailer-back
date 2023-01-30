@@ -41,7 +41,7 @@ export class MailSenderService {
             sender = this.createSender(mailAccount);
           }
           
-          this.send(sender, subject, msg, mails[count], mailAccount.email);
+          this.send(sender, subject, message, mails[count], mailAccount.email);
           count++;
           
           if (mails.length === count) {
