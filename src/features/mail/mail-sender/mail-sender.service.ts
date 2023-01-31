@@ -16,7 +16,6 @@ export class MailSenderService {
 
       async createMailingList(info: IMailingListOptions) {
         const { mails, subject, message, senderAccountsIds } = info;
-        console.log(info);
         
         const countMailsForEachAccount = Math.ceil(mails.length / senderAccountsIds.length);
 
@@ -80,20 +79,11 @@ export class MailSenderService {
             refreshToken: credentials.refreshToken
         }
       });
-      // return this.nodemailerTransport = createTransport({
-      //   host: "smtp.ethereal.email",
-      //   port: 587,
-      //   secure: false, // true for 465, false for other ports
-      //   auth: {
-      //     user: testAccount.user, // generated ethereal user
-      //     pass: testAccount.pass, // generated ethereal password
-      //   },
-      // });
     }
 
     private send(sender: any, subject: string, message: string, mailTo: string, emailSender: string){
         return sender.sendMail({
-          from: 'sender@gmail.com',
+          from: emailSender,
           to: mailTo,
           subject: subject,
           html: message

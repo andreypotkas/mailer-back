@@ -71,26 +71,4 @@ export class OauthMailAccountController {
         return 'There was a problem signing in...';
       }
     }
-  
-    @Get('mailru')
-    @UseGuards(AuthGuard('mailru-mailer'))
-    async mailru() {}
-  
-    @Get('mailru/redirect')
-    @UseGuards(AuthGuard('mailru-mailer'))
-    async mailruRedirect(@Req() req: Request) {
-  
-      const user = req.user as any;
-      
-      if (user) {
-        return `
-        <html><body><script>
-        window.opener.postMessage('${JSON.stringify(user)}',
-        'http://localhost:4200/main')
-        </script></body></html>
-        `;
-      } else {
-        return 'There was a problem signing in...';
-      }
-    }
 }

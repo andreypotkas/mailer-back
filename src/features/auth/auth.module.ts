@@ -14,7 +14,7 @@ import { TokenService } from './services/token.service';
 import { OauthService } from './services/oauth.service';
 import { OutlookruMailerStrategy } from './strategies/outlook-oauth-mailer.strategy';
 import { YandexStrategy } from './strategies/yandex-oauth.strategy';
-import { MailruStrategy } from './strategies/mailru-oauth.strategy';
+import { YahooMailerStrategy } from './strategies/yahoo.strategy';
 
 @Module({
   controllers: [AuthController, OauthController],
@@ -30,7 +30,7 @@ import { MailruStrategy } from './strategies/mailru-oauth.strategy';
     TokenService,
     OauthService,
     YandexStrategy,
-    MailruStrategy
+    YahooMailerStrategy
   ],
   imports: [forwardRef(() => UsersModule), JwtModule.register({})],
   exports: [AuthService, JwtModule, ConfigService],

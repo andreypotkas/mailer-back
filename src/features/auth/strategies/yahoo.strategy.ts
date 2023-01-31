@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy, VerifyCallback } from 'passport-google-oauth20';
+import { Strategy, VerifyCallback } from 'passport-yahoo-oauth2';
 
 @Injectable()
-export class GoogleMailerStrategy extends PassportStrategy(Strategy, 'google-mailer') {
+export class YahooMailerStrategy extends PassportStrategy(Strategy, 'yahoo-mailer') {
   constructor(private configService: ConfigService) {
     super({
       clientID: configService.get('GOOGLE_CLIENT_ID'),

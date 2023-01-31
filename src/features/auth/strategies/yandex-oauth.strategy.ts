@@ -10,8 +10,6 @@ export class YandexStrategy extends PassportStrategy(Strategy, 'yandex-mailer') 
       clientID: configService.get('YANDEX_CLIENT_ID'),
       clientSecret: configService.get('YANDEX_SECRET'),
       callbackURL: configService.get('YANDEX_CALLBACK_URL'),
-      forceConfirm: true,
-      force_confirm: 'true'
     });
   }
   authorizationParams(): { [key: string]: string; } {

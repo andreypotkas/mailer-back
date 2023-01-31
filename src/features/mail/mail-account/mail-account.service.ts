@@ -29,7 +29,7 @@ export class MailAccountService {
   public async create( email: string, accessToken: string, refreshToken: string, service: string, userId: string ): Promise<MailAccount> {
     const mail = await this.getByEmail(email);
 
-    if(mail){
+    if (mail) {
       throw new BadGatewayException('Already exist');
     }
      
